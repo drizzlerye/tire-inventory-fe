@@ -1,5 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
-import { Stack } from "expo-router";
+import { Ionicons } from '@expo/vector-icons';
+import { Stack, useRouter } from 'expo-router';
 import {
   Alert,
   Image,
@@ -8,25 +8,27 @@ import {
   StyleSheet,
   Text,
   View,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const quickActions = [
   {
-    label: "Tire Catalog",
-    description: "Add and manage tire details",
-    icon: "disc-outline" as const,
-    message: "The tire catalog will be the next screen to set up.",
+    label: 'Tire Catalog',
+    description: 'Add and manage tire details',
+    icon: 'disc-outline' as const,
+    message: 'The tire catalog will be the next screen to set up.',
   },
   {
-    label: "Sales",
-    description: "Review recent transactions",
-    icon: "receipt-outline" as const,
-    message: "Sales tracking will be available once that screen is set up.",
+    label: 'Sales',
+    description: 'Review recent transactions',
+    icon: 'receipt-outline' as const,
+    message: 'Sales tracking will be available once that screen is set up.',
   },
 ];
 
 export default function Index() {
+  const router = useRouter();
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <Stack.Screen options={{ headerShown: false }} />
@@ -39,7 +41,7 @@ export default function Index() {
           <View style={styles.logoFrame}>
             <Image
               accessibilityLabel="Tire Inventory logo"
-              source={require("../assets/images/react-logo.png")}
+              source={require('../assets/images/react-logo.png')}
               style={styles.logo}
             />
           </View>
@@ -53,12 +55,7 @@ export default function Index() {
 
           <Pressable
             accessibilityRole="button"
-            onPress={() =>
-              Alert.alert(
-                "Inventory coming next",
-                "Your landing page is ready. The inventory screen is the next step.",
-              )
-            }
+            onPress={() => router.push('/inventory')}
             style={({ pressed }) => [
               styles.primaryButton,
               pressed && styles.buttonPressed,
@@ -76,7 +73,9 @@ export default function Index() {
 
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Quick actions</Text>
-          <Text style={styles.sectionCaption}>Jump back into your daily work</Text>
+          <Text style={styles.sectionCaption}>
+            Jump back into your daily work
+          </Text>
         </View>
 
         <View style={styles.actionList}>
@@ -95,7 +94,9 @@ export default function Index() {
               </View>
               <View style={styles.actionText}>
                 <Text style={styles.actionLabel}>{action.label}</Text>
-                <Text style={styles.actionDescription}>{action.description}</Text>
+                <Text style={styles.actionDescription}>
+                  {action.description}
+                </Text>
               </View>
               <Ionicons color="#64748b" name="chevron-forward" size={20} />
             </Pressable>
@@ -109,7 +110,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#f8fafc",
+    backgroundColor: '#f8fafc',
   },
   content: {
     flexGrow: 1,
@@ -118,55 +119,55 @@ const styles = StyleSheet.create({
     paddingBottom: 36,
   },
   brandRow: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 12,
     marginBottom: 34,
   },
   logoFrame: {
     width: 48,
     height: 48,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 14,
-    backgroundColor: "#e0ecff",
+    backgroundColor: '#e0ecff',
   },
   logo: {
     width: 31,
     height: 27,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
   brandName: {
-    color: "#0f172a",
+    color: '#0f172a',
     fontSize: 18,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   brandCaption: {
     marginTop: 2,
-    color: "#64748b",
+    color: '#64748b',
     fontSize: 13,
   },
   hero: {
     padding: 24,
     borderRadius: 24,
-    backgroundColor: "#0f172a",
+    backgroundColor: '#0f172a',
   },
   eyebrow: {
     marginBottom: 14,
-    color: "#93c5fd",
+    color: '#93c5fd',
     fontSize: 12,
-    fontWeight: "800",
+    fontWeight: '800',
     letterSpacing: 1.4,
   },
   title: {
-    color: "#ffffff",
+    color: '#ffffff',
     fontSize: 31,
-    fontWeight: "800",
+    fontWeight: '800',
     lineHeight: 38,
   },
   subtitle: {
     marginTop: 14,
-    color: "#cbd5e1",
+    color: '#cbd5e1',
     fontSize: 16,
     lineHeight: 24,
   },
@@ -174,20 +175,20 @@ const styles = StyleSheet.create({
     minHeight: 70,
     marginTop: 26,
     paddingHorizontal: 18,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     borderRadius: 16,
-    backgroundColor: "#2563eb",
+    backgroundColor: '#2563eb',
   },
   primaryButtonText: {
-    color: "#ffffff",
+    color: '#ffffff',
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   primaryButtonCaption: {
     marginTop: 3,
-    color: "#dbeafe",
+    color: '#dbeafe',
     fontSize: 12,
   },
   buttonPressed: {
@@ -199,13 +200,13 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   sectionTitle: {
-    color: "#0f172a",
+    color: '#0f172a',
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   sectionCaption: {
     marginTop: 4,
-    color: "#64748b",
+    color: '#64748b',
     fontSize: 14,
   },
   actionList: {
@@ -214,33 +215,33 @@ const styles = StyleSheet.create({
   actionCard: {
     minHeight: 78,
     paddingHorizontal: 16,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#e2e8f0",
+    borderColor: '#e2e8f0',
     borderRadius: 18,
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
   },
   actionIcon: {
     width: 44,
     height: 44,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 13,
-    backgroundColor: "#eff6ff",
+    backgroundColor: '#eff6ff',
   },
   actionText: {
     flex: 1,
     marginHorizontal: 14,
   },
   actionLabel: {
-    color: "#0f172a",
+    color: '#0f172a',
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   actionDescription: {
     marginTop: 4,
-    color: "#64748b",
+    color: '#64748b',
     fontSize: 13,
   },
 });
