@@ -137,6 +137,6 @@ The main routes are:
 | `pnpm web`     | Start the web version             |
 | `pnpm lint`    | Run the Expo ESLint configuration |
 
-## License
+## Copyright
 
-See [LICENSE](LICENSE) for license information.
+Copyright © 2026 David Rye. All rights reserved.
