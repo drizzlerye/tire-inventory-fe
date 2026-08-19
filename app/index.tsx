@@ -26,6 +26,7 @@ const quickActions = [
   },
 ];
 
+//pnpm exec expo start --clear
 export default function Index() {
   const router = useRouter();
 

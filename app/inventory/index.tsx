@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from 'react-native';
+//Needed for rendering automatic boundaries for iOS devices
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useInventory } from '@/hooks/useInventory';
